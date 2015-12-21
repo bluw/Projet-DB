@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="200c9a16c3004fcb81b5978721f44d60" Name="Diagram1">
+        <EntityTypeShape EntityType="MeditModel.Company" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditModel.Exposition" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditModel.Language" Width="1.5" PointX="3.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditModel.Link" Width="1.5" PointX="8.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditModel.Profession" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditModel.Risk" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditModel.Sector" Width="1.5" PointX="1.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditModel.Submission" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditModel.SubmittedJob" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditModel.TranslationExam" Width="1.5" PointX="6" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditModel.TranslationProfession" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditModel.TranslationRisk" Width="1.5" PointX="8" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditModel.TypeExam" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeditModel.Worker" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <AssociationConnector Association="MeditModel.FK_Company_Sector" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_SubmittedJob_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_Exposition_Risk" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_Exposition_SubmittedJob" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_TranslationE_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_TranslationP_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_TranslationR_Language" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_Link_Risk" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_Link_TypeExam" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_SubmittedJob_Profession" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_TranslationP_Profession" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_TranslationR_Risk" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_Submission_SubmittedJob" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_Submission_TypeExam" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_SubmittedJob_Worker" ManuallyRouted="false" />
+        <AssociationConnector Association="MeditModel.FK_TranslationE_TypeExam" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

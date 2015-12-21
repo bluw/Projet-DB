@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MeditModelStoreContainer" CdmEntityContainer="MeditEntities">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="MeditModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="idCompany" ColumnName="idCompany" />
+          <ScalarProperty Name="denomination" ColumnName="denomination" />
+          <ScalarProperty Name="adressNum" ColumnName="adressNum" />
+          <ScalarProperty Name="adressStreet" ColumnName="adressStreet" />
+          <ScalarProperty Name="adressPostCode" ColumnName="adressPostCode" />
+          <ScalarProperty Name="adressLocality" ColumnName="adressLocality" />
+          <ScalarProperty Name="telNum" ColumnName="telNum" />
+          <ScalarProperty Name="nbSubmittedWorkerDeb" ColumnName="nbSubmittedWorkerDeb" />
+          <ScalarProperty Name="nbNonSubmittedWorkerDeb" ColumnName="nbNonSubmittedWorkerDeb" />
+          <ScalarProperty Name="FK_Sector" ColumnName="FK_Sector" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expositions">
+      <EntityTypeMapping TypeName="MeditModel.Exposition">
+        <MappingFragment StoreEntitySet="Exposition">
+          <ScalarProperty Name="idExposition" ColumnName="idExposition" />
+          <ScalarProperty Name="FK_SubmittedJob" ColumnName="FK_SubmittedJob" />
+          <ScalarProperty Name="FK_Risk" ColumnName="FK_Risk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="MeditModel.Language">
+        <MappingFragment StoreEntitySet="Language">
+          <ScalarProperty Name="codeLanguage" ColumnName="codeLanguage" />
+          <ScalarProperty Name="denomination" ColumnName="denomination" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Links">
+      <EntityTypeMapping TypeName="MeditModel.Link">
+        <MappingFragment StoreEntitySet="Link">
+          <ScalarProperty Name="idLink" ColumnName="idLink" />
+          <ScalarProperty Name="FK_Risk" ColumnName="FK_Risk" />
+          <ScalarProperty Name="FK_TypeExam" ColumnName="FK_TypeExam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Professions">
+      <EntityTypeMapping TypeName="MeditModel.Profession">
+        <MappingFragment StoreEntitySet="Profession">
+          <ScalarProperty Name="codeProf" ColumnName="codeProf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Risks">
+      <EntityTypeMapping TypeName="MeditModel.Risk">
+        <MappingFragment StoreEntitySet="Risk">
+          <ScalarProperty Name="codeRisk" ColumnName="codeRisk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sectors">
+      <EntityTypeMapping TypeName="MeditModel.Sector">
+        <MappingFragment StoreEntitySet="Sector">
+          <ScalarProperty Name="codeSector" ColumnName="codeSector" />
+          <ScalarProperty Name="denomination" ColumnName="denomination" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Submissions">
+      <EntityTypeMapping TypeName="MeditModel.Submission">
+        <MappingFragment StoreEntitySet="Submission">
+          <ScalarProperty Name="idSubmission" ColumnName="idSubmission" />
+          <ScalarProperty Name="FK_SubmittedJob" ColumnName="FK_SubmittedJob" />
+          <ScalarProperty Name="FK_TypeExam" ColumnName="FK_TypeExam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubmittedJobs">
+      <EntityTypeMapping TypeName="MeditModel.SubmittedJob">
+        <MappingFragment StoreEntitySet="SubmittedJob">
+          <ScalarProperty Name="idJob" ColumnName="idJob" />
+          <ScalarProperty Name="startDate" ColumnName="startDate" />
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
+          <ScalarProperty Name="FK_Company" ColumnName="FK_Company" />
+          <ScalarProperty Name="FK_Worker" ColumnName="FK_Worker" />
+          <ScalarProperty Name="FK_Profession" ColumnName="FK_Profession" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TranslationExams">
+      <EntityTypeMapping TypeName="MeditModel.TranslationExam">
+        <MappingFragment StoreEntitySet="TranslationExam">
+          <ScalarProperty Name="idTranslation" ColumnName="idTranslation" />
+          <ScalarProperty Name="translation" ColumnName="translation" />
+          <ScalarProperty Name="FK_Language" ColumnName="FK_Language" />
+          <ScalarProperty Name="FK_TypeExam" ColumnName="FK_TypeExam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TranslationProfessions">
+      <EntityTypeMapping TypeName="MeditModel.TranslationProfession">
+        <MappingFragment StoreEntitySet="TranslationProfession">
+          <ScalarProperty Name="idTranslation" ColumnName="idTranslation" />
+          <ScalarProperty Name="translation" ColumnName="translation" />
+          <ScalarProperty Name="FK_Language" ColumnName="FK_Language" />
+          <ScalarProperty Name="FK_Profession" ColumnName="FK_Profession" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TranslationRisks">
+      <EntityTypeMapping TypeName="MeditModel.TranslationRisk">
+        <MappingFragment StoreEntitySet="TranslationRisk">
+          <ScalarProperty Name="idTranslation" ColumnName="idTranslation" />
+          <ScalarProperty Name="translation" ColumnName="translation" />
+          <ScalarProperty Name="FK_Language" ColumnName="FK_Language" />
+          <ScalarProperty Name="FK_Risk" ColumnName="FK_Risk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeExams">
+      <EntityTypeMapping TypeName="MeditModel.TypeExam">
+        <MappingFragment StoreEntitySet="TypeExam">
+          <ScalarProperty Name="codeExam" ColumnName="codeExam" />
+          <ScalarProperty Name="periodicity" ColumnName="periodicity" />
+          <ScalarProperty Name="numCompteProd" ColumnName="numCompteProd" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workers">
+      <EntityTypeMapping TypeName="MeditModel.Worker">
+        <MappingFragment StoreEntitySet="Worker">
+          <ScalarProperty Name="idWorker" ColumnName="idWorker" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="adressNum" ColumnName="adressNum" />
+          <ScalarProperty Name="adressStreet" ColumnName="adressStreet" />
+          <ScalarProperty Name="adressPostCode" ColumnName="adressPostCode" />
+          <ScalarProperty Name="adressLocality" ColumnName="adressLocality" />
+          <ScalarProperty Name="folderNum" ColumnName="folderNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

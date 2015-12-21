@@ -1,0 +1,38 @@
+﻿<div>
+    <form>
+        <fieldset>
+            <legend>Select job</legend>
+            <label>Job</label>
+            <select name="fkJob" class="input-large" ng-model="data.fkJob">
+                <option ng-repeat="job in jobs" value="{{job.IdJob}}">
+                    {{job.Profession}} - {{job.StartDate | date:'dd/MM/yyyy'}}
+                </option>
+            </select>
+        </fieldset>
+    </form>
+</div>
+<br />
+<br />
+<div>
+    <form>
+        <fieldset>
+            <legend>Select risk</legend>
+            <label>Risk</label>
+            <select  name="fkRisk" class="input-large" ng-model="data.fkRisk">
+                <option ng-repeat="risk in risks" value="{{risk.CodeRisk}}">
+                    {{risk.Denomination}}
+                </option>
+            </select>
+        </fieldset>
+    </form>
+</div>
+<br />
+<br />
+<div>
+    <form>
+        <fieldset>
+            <legend>Comfirmation</legend>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="postExposition()">Submit</button>
+        </fieldset>
+    </form>
+</div>

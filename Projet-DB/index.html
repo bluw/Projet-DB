@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <link href="bootstrap/vendor/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="bootstrap/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+</head>
+<body ng-app="webAPI">
+
+    <div class="container">
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="#/Exam">Exams</a></li>
+                    <li role="presentation"><a href="#/Risk">Risks</a></li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Database Project 2015-2016</h3>
+        </div>
+        <br />
+        <br />
+
+        <div class="row">
+            <div class="container" ng-view>
+
+            </div>
+        </div>
+    </div>
+    <script src="Scripts/jquery-2.1.4.js" type="text/javascript"></script>
+    <script src="bootstrap/vendor/js/bootstrap.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap-combobox.js" type="text/javascript"></script>
+    <script src="Scripts/app.js"></script>
+    <script type="text/javascript">
+      //<![CDATA[
+        $(document).ready(function(){
+          $('.combobox').combobox()
+        });
+      //]]>
+    </script>
+</body>
+</html>

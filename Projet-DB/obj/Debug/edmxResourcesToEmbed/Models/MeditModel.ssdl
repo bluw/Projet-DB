@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MeditModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="idCompany" />
+    </Key>
+    <Property Name="idCompany" Type="int" Nullable="false" />
+    <Property Name="denomination" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adressNum" Type="int" Nullable="false" />
+    <Property Name="adressStreet" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adressPostCode" Type="int" Nullable="false" />
+    <Property Name="adressLocality" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="telNum" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="nbSubmittedWorkerDeb" Type="int" Nullable="false" />
+    <Property Name="nbNonSubmittedWorkerDeb" Type="int" Nullable="false" />
+    <Property Name="FK_Sector" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Exposition">
+    <Key>
+      <PropertyRef Name="idExposition" />
+    </Key>
+    <Property Name="idExposition" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_SubmittedJob" Type="int" Nullable="false" />
+    <Property Name="FK_Risk" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="codeLanguage" />
+    </Key>
+    <Property Name="codeLanguage" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="denomination" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Link">
+    <Key>
+      <PropertyRef Name="idLink" />
+    </Key>
+    <Property Name="idLink" Type="int" Nullable="false" />
+    <Property Name="FK_Risk" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="FK_TypeExam" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Profession">
+    <Key>
+      <PropertyRef Name="codeProf" />
+    </Key>
+    <Property Name="codeProf" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Risk">
+    <Key>
+      <PropertyRef Name="codeRisk" />
+    </Key>
+    <Property Name="codeRisk" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sector">
+    <Key>
+      <PropertyRef Name="codeSector" />
+    </Key>
+    <Property Name="codeSector" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="denomination" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Submission">
+    <Key>
+      <PropertyRef Name="idSubmission" />
+    </Key>
+    <Property Name="idSubmission" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_SubmittedJob" Type="int" Nullable="false" />
+    <Property Name="FK_TypeExam" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubmittedJob">
+    <Key>
+      <PropertyRef Name="idJob" />
+    </Key>
+    <Property Name="idJob" Type="int" Nullable="false" />
+    <Property Name="startDate" Type="date" Nullable="false" />
+    <Property Name="endDate" Type="date" />
+    <Property Name="FK_Company" Type="int" Nullable="false" />
+    <Property Name="FK_Worker" Type="int" Nullable="false" />
+    <Property Name="FK_Profession" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TranslationExam">
+    <Key>
+      <PropertyRef Name="idTranslation" />
+    </Key>
+    <Property Name="idTranslation" Type="int" Nullable="false" />
+    <Property Name="translation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FK_Language" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="FK_TypeExam" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TranslationProfession">
+    <Key>
+      <PropertyRef Name="idTranslation" />
+    </Key>
+    <Property Name="idTranslation" Type="int" Nullable="false" />
+    <Property Name="translation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FK_Language" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="FK_Profession" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TranslationRisk">
+    <Key>
+      <PropertyRef Name="idTranslation" />
+    </Key>
+    <Property Name="idTranslation" Type="int" Nullable="false" />
+    <Property Name="translation" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FK_Language" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="FK_Risk" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeExam">
+    <Key>
+      <PropertyRef Name="codeExam" />
+    </Key>
+    <Property Name="codeExam" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="periodicity" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="numCompteProd" Type="int" Nullable="false" />
+    <Property Name="price" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Worker">
+    <Key>
+      <PropertyRef Name="idWorker" />
+    </Key>
+    <Property Name="idWorker" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adressNum" Type="int" Nullable="false" />
+    <Property Name="adressStreet" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adressPostCode" Type="int" Nullable="false" />
+    <Property Name="adressLocality" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="folderNum" Type="int" />
+  </EntityType>
+  <Association Name="FK_Company_Sector">
+    <End Role="Sector" Type="Self.Sector" Multiplicity="1" />
+    <End Role="Company" Type="Self.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="codeSector" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="FK_Sector" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exposition_Risk">
+    <End Role="Risk" Type="Self.Risk" Multiplicity="1" />
+    <End Role="Exposition" Type="Self.Exposition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Risk">
+        <PropertyRef Name="codeRisk" />
+      </Principal>
+      <Dependent Role="Exposition">
+        <PropertyRef Name="FK_Risk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exposition_SubmittedJob">
+    <End Role="SubmittedJob" Type="Self.SubmittedJob" Multiplicity="1" />
+    <End Role="Exposition" Type="Self.Exposition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubmittedJob">
+        <PropertyRef Name="idJob" />
+      </Principal>
+      <Dependent Role="Exposition">
+        <PropertyRef Name="FK_SubmittedJob" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Link_Risk">
+    <End Role="Risk" Type="Self.Risk" Multiplicity="1" />
+    <End Role="Link" Type="Self.Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Risk">
+        <PropertyRef Name="codeRisk" />
+      </Principal>
+      <Dependent Role="Link">
+        <PropertyRef Name="FK_Risk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Link_TypeExam">
+    <End Role="TypeExam" Type="Self.TypeExam" Multiplicity="1" />
+    <End Role="Link" Type="Self.Link" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeExam">
+        <PropertyRef Name="codeExam" />
+      </Principal>
+      <Dependent Role="Link">
+        <PropertyRef Name="FK_TypeExam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Submission_SubmittedJob">
+    <End Role="SubmittedJob" Type="Self.SubmittedJob" Multiplicity="1" />
+    <End Role="Submission" Type="Self.Submission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubmittedJob">
+        <PropertyRef Name="idJob" />
+      </Principal>
+      <Dependent Role="Submission">
+        <PropertyRef Name="FK_SubmittedJob" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Submission_TypeExam">
+    <End Role="TypeExam" Type="Self.TypeExam" Multiplicity="1" />
+    <End Role="Submission" Type="Self.Submission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeExam">
+        <PropertyRef Name="codeExam" />
+      </Principal>
+      <Dependent Role="Submission">
+        <PropertyRef Name="FK_TypeExam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubmittedJob_Company">
+    <End Role="Company" Type="Self.Company" Multiplicity="1" />
+    <End Role="SubmittedJob" Type="Self.SubmittedJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="idCompany" />
+      </Principal>
+      <Dependent Role="SubmittedJob">
+        <PropertyRef Name="FK_Company" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubmittedJob_Profession">
+    <End Role="Profession" Type="Self.Profession" Multiplicity="1" />
+    <End Role="SubmittedJob" Type="Self.SubmittedJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profession">
+        <PropertyRef Name="codeProf" />
+      </Principal>
+      <Dependent Role="SubmittedJob">
+        <PropertyRef Name="FK_Profession" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubmittedJob_Worker">
+    <End Role="Worker" Type="Self.Worker" Multiplicity="1" />
+    <End Role="SubmittedJob" Type="Self.SubmittedJob" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="idWorker" />
+      </Principal>
+      <Dependent Role="SubmittedJob">
+        <PropertyRef Name="FK_Worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TranslationE_Language">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="TranslationExam" Type="Self.TranslationExam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="codeLanguage" />
+      </Principal>
+      <Dependent Role="TranslationExam">
+        <PropertyRef Name="FK_Language" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TranslationE_TypeExam">
+    <End Role="TypeExam" Type="Self.TypeExam" Multiplicity="1" />
+    <End Role="TranslationExam" Type="Self.TranslationExam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeExam">
+        <PropertyRef Name="codeExam" />
+      </Principal>
+      <Dependent Role="TranslationExam">
+        <PropertyRef Name="FK_TypeExam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TranslationP_Language">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="TranslationProfession" Type="Self.TranslationProfession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="codeLanguage" />
+      </Principal>
+      <Dependent Role="TranslationProfession">
+        <PropertyRef Name="FK_Language" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TranslationP_Profession">
+    <End Role="Profession" Type="Self.Profession" Multiplicity="1" />
+    <End Role="TranslationProfession" Type="Self.TranslationProfession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Profession">
+        <PropertyRef Name="codeProf" />
+      </Principal>
+      <Dependent Role="TranslationProfession">
+        <PropertyRef Name="FK_Profession" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TranslationR_Language">
+    <End Role="Language" Type="Self.Language" Multiplicity="1" />
+    <End Role="TranslationRisk" Type="Self.TranslationRisk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="codeLanguage" />
+      </Principal>
+      <Dependent Role="TranslationRisk">
+        <PropertyRef Name="FK_Language" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TranslationR_Risk">
+    <End Role="Risk" Type="Self.Risk" Multiplicity="1" />
+    <End Role="TranslationRisk" Type="Self.TranslationRisk" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Risk">
+        <PropertyRef Name="codeRisk" />
+      </Principal>
+      <Dependent Role="TranslationRisk">
+        <PropertyRef Name="FK_Risk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MeditModelStoreContainer">
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exposition" EntityType="Self.Exposition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Link" EntityType="Self.Link" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profession" EntityType="Self.Profession" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Risk" EntityType="Self.Risk" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sector" EntityType="Self.Sector" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Submission" EntityType="Self.Submission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubmittedJob" EntityType="Self.SubmittedJob" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TranslationExam" EntityType="Self.TranslationExam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TranslationProfession" EntityType="Self.TranslationProfession" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TranslationRisk" EntityType="Self.TranslationRisk" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeExam" EntityType="Self.TypeExam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Worker" EntityType="Self.Worker" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Company_Sector" Association="Self.FK_Company_Sector">
+      <End Role="Sector" EntitySet="Sector" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exposition_Risk" Association="Self.FK_Exposition_Risk">
+      <End Role="Risk" EntitySet="Risk" />
+      <End Role="Exposition" EntitySet="Exposition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exposition_SubmittedJob" Association="Self.FK_Exposition_SubmittedJob">
+      <End Role="SubmittedJob" EntitySet="SubmittedJob" />
+      <End Role="Exposition" EntitySet="Exposition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Link_Risk" Association="Self.FK_Link_Risk">
+      <End Role="Risk" EntitySet="Risk" />
+      <End Role="Link" EntitySet="Link" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Link_TypeExam" Association="Self.FK_Link_TypeExam">
+      <End Role="TypeExam" EntitySet="TypeExam" />
+      <End Role="Link" EntitySet="Link" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Submission_SubmittedJob" Association="Self.FK_Submission_SubmittedJob">
+      <End Role="SubmittedJob" EntitySet="SubmittedJob" />
+      <End Role="Submission" EntitySet="Submission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Submission_TypeExam" Association="Self.FK_Submission_TypeExam">
+      <End Role="TypeExam" EntitySet="TypeExam" />
+      <End Role="Submission" EntitySet="Submission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubmittedJob_Company" Association="Self.FK_SubmittedJob_Company">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="SubmittedJob" EntitySet="SubmittedJob" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubmittedJob_Profession" Association="Self.FK_SubmittedJob_Profession">
+      <End Role="Profession" EntitySet="Profession" />
+      <End Role="SubmittedJob" EntitySet="SubmittedJob" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubmittedJob_Worker" Association="Self.FK_SubmittedJob_Worker">
+      <End Role="Worker" EntitySet="Worker" />
+      <End Role="SubmittedJob" EntitySet="SubmittedJob" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TranslationE_Language" Association="Self.FK_TranslationE_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="TranslationExam" EntitySet="TranslationExam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TranslationE_TypeExam" Association="Self.FK_TranslationE_TypeExam">
+      <End Role="TypeExam" EntitySet="TypeExam" />
+      <End Role="TranslationExam" EntitySet="TranslationExam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TranslationP_Language" Association="Self.FK_TranslationP_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="TranslationProfession" EntitySet="TranslationProfession" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TranslationP_Profession" Association="Self.FK_TranslationP_Profession">
+      <End Role="Profession" EntitySet="Profession" />
+      <End Role="TranslationProfession" EntitySet="TranslationProfession" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TranslationR_Language" Association="Self.FK_TranslationR_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="TranslationRisk" EntitySet="TranslationRisk" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TranslationR_Risk" Association="Self.FK_TranslationR_Risk">
+      <End Role="Risk" EntitySet="Risk" />
+      <End Role="TranslationRisk" EntitySet="TranslationRisk" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
